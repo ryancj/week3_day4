@@ -64,3 +64,36 @@ SELECT * FROM students WHERE age > 30 ORDER BY first_name, last_name ASC LIMIT 1
 ```
 SELECT * FROM students WHERE first_name ILIKE 'ke%' LIMIT 10 OFFSET 10;
 ```
+
+###UPDATE
+```
+UPDATE students set first_name="Ryan" WHERE id=48;
+```
+
+###DELETE
+- DELETE FROM table_name WHERE [condition];
+
+###Aggregate Functions
+- Count
+```
+SELECT COUNT(*) FROM students;
+```
+```
+SELECT COUNT(*) AS student_count FROM students WHERE age > 25;
+```
+- Sum
+```
+SELECT SUM(id) AS sum_of_ids FROM students;
+```
+- AVG and ROUND
+```
+SELECT ROUND(AVG(age)) FROM students WHERE registration_date > '2016-01-11';
+```
+- MAX and MIN
+```
+SELECT MAX(age) FROM students;
+```
+- GROUP BY
+```
+SELECT COUNT(first_name) AS first_name_count, first_name FROM students GROUP BY first_name;
+```
