@@ -38,3 +38,29 @@ sqlite> SELECT * FROM students WHERE age > 25
 2|John|Smith|john@smith.com|||45
 3|John|Smith|john@smith.com|||45
 ```
+- three-valued logic (3VL)
+- IS NULL/IS NOT NULL
+- ILIKE (case insensitive, Postgres)
+```
+SELECT * FROM students WHERE first_name ILIKE 'jo%';
+```
+- jo% partial words
+- %nn% middle stirng
+- Between reads nicer
+```
+SELECT * FROM students WHERE age BETWEEN 25 AND 35;
+```
+
+###ORDER BY
+- ASC/DESC
+```
+SELECT * FROM students WHERE registration_date BETWEEN '2016-01-18' AND '2016-01-23' ORDER BY first_name, last_name DESC;
+```
+
+###LIMIT/OFFSET
+```
+SELECT * FROM students WHERE age > 30 ORDER BY first_name, last_name ASC LIMIT 10;
+```
+```
+SELECT * FROM students WHERE first_name ILIKE 'ke%' LIMIT 10 OFFSET 10;
+```
